@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225">
+  <rect width="400" height="225" fill="#0d1117"/>
+  <rect x="30" y="30" width="340" height="165" rx="12" fill="#1f2937"/>
+  <rect x="50" y="85" width="300" height="70" rx="8" fill="#111827"/>
+  <circle cx="120" cy="162" r="16" fill="#f97316"/>
+  <circle cx="280" cy="162" r="16" fill="#f97316"/>
+  <text x="200" y="72" fill="#e5e7eb" font-size="20" text-anchor="middle" font-family="Arial, sans-serif">APEX GARAGE</text>
+</svg>
+
