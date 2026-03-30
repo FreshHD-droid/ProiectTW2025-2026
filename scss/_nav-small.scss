@@ -1,0 +1,74 @@
+// ============================================
+// Small screen — max 768px
+// Hamburger menu, vertical nav, scaleX submenu
+// ============================================
+@use 'variables' as *;
+
+@media (max-width: $breakpoint-small) {
+  header {
+    position: relative;
+  }
+
+  // Show hamburger
+  .hamburger {
+    display: flex;
+  }
+
+  // Nav hidden by default, shown on checkbox toggle
+  .nav-main {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+
+    .nav-item {
+      width: 100%;
+
+      // First item: hide text, keep house icon
+      &:first-child > a .nav-text {
+        display: none;
+      }
+
+      > a {
+        border-radius: 0;
+        padding: 0.6em $nav-padding-h;
+
+        .nav-text {
+          display: inline;
+        }
+      }
+
+      // Submenu: horizontal scale instead of vertical
+      &.has-submenu > .submenu {
+        position: static;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform $submenu-scale-speed ease,
+                    max-height $submenu-scale-speed ease,
+                    padding $submenu-scale-speed ease;
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.15);
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        padding-left: 1em;
+        min-width: unset;
+        pointer-events: none;
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      &.has-submenu:hover > .submenu {
+        transform: scaleX(1);
+        pointer-events: auto;
+        max-height: 20rem;
+        padding: 0.5rem 0 0.5rem 1em;
+      }
+    }
+  }
+
+  // Show nav when hamburger is toggled
+  .menu-toggle-checkbox:checked ~ nav .nav-main {
+    display: flex;
+  }
+}

@@ -1,0 +1,114 @@
+// ============================================
+// Hamburger Icon + Animations (Bonus 1, 2, 3)
+// ============================================
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Bonus 1: Hamburger from 3 span elements, position absolute
+.hamburger {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $hamburger-bar-gap;
+  cursor: pointer;
+  width: $hamburger-size;
+  height: $hamburger-size;
+  position: absolute;
+  top: 50%;
+  right: var(--page-padding);
+  transform: translateY(-50%);
+  z-index: 200;
+  background: none;
+  border: none;
+  padding: 0;
+
+  .bar {
+    display: block;
+    width: $hamburger-bar-width;
+    height: $hamburger-bar-height;
+    background-color: var(--text-primary);
+    border-radius: 2px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform $hamburger-animation-duration ease,
+                opacity $hamburger-animation-duration ease,
+                background-color $hamburger-animation-duration ease;
+  }
+
+  // Position bars vertically using @for (Task 2: @for usage)
+  @for $i from 1 through 3 {
+    .bar-#{$i} {
+      top: calc(50% + (#{$i} - 2) * (#{$hamburger-bar-height} + #{$hamburger-bar-gap}));
+    }
+  }
+}
+
+// Bonus 2: Keyframe animations — min 3 keyframes each
+// Bar 1: slides down then rotates to form top half of X
+@keyframes hamburger-bar1 {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+    background-color: var(--text-primary);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(#{$hamburger-bar-height + $hamburger-bar-gap}) rotate(0deg);
+    background-color: var(--highlight);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(#{$hamburger-bar-height + $hamburger-bar-gap}) rotate(45deg);
+    background-color: var(--bg-accent);
+    opacity: 1;
+  }
+}
+
+// Bar 2: fades out
+@keyframes hamburger-bar2 {
+  0% {
+    transform: translateX(-50%) scaleX(1);
+    background-color: var(--text-primary);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scaleX(0.5);
+    background-color: var(--highlight);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(-50%) scaleX(0);
+    background-color: var(--bg-accent);
+    opacity: 0;
+  }
+}
+
+// Bar 3: slides up then rotates to form bottom half of X
+@keyframes hamburger-bar3 {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+    background-color: var(--text-primary);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-#{$hamburger-bar-height + $hamburger-bar-gap}) rotate(0deg);
+    background-color: var(--highlight);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-#{$hamburger-bar-height + $hamburger-bar-gap}) rotate(-45deg);
+    background-color: var(--bg-accent);
+    opacity: 1;
+  }
+}
+
+// Apply animations when checkbox checked
+// Bonus 3: @for generates successive delays
+.menu-toggle-checkbox:checked ~ .hamburger {
+  @for $i from 1 through 3 {
+    .bar-#{$i} {
+      animation: hamburger-bar#{$i} $hamburger-animation-duration ease forwards;
+      animation-delay: ($i - 1) * $hamburger-bar-delay-step;
+    }
+  }
+}

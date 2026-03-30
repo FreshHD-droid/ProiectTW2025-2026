@@ -1,0 +1,854 @@
+/*
+  STYLE.CSS - Etapa 2
+  Apex Auto Shop
+
+  Schema cromatica, layout, design, stilizare componente
+*/
+
+
+/* ---- 1. Schema cromatica ----
+   Culoare de baza: #C8102E (rosu)
+   Am ales schema complementara cu 5+ culori.
+
+   De ce aceste culori:
+   - Rosu (#C8102E) = viteza, putere, pasiune -> se potriveste cu domeniul auto
+   - Navy (#0D1B2A) = incredere, stabilitate -> fundal serios pt un magazin
+   - Auriu (#D4A843) = calitate premium -> pt highlight-uri si accente
+   - Gri-albastru (#B0BEC5) = neutral -> text secundar, usor de citit
+   - Alb cald (#F0EDE8) = curat, modern -> contrast bun pe fundal inchis
+*/
+
+body {
+  /* culori bg */
+  --bg-primary: #0D1B2A;
+  --bg-secondary: #1B2D45;
+  --bg-tertiary: #253B56;
+  --bg-light: #F0EDE8;
+  --bg-accent: #C8102E;
+
+  /* culori text */
+  --text-primary: #F0EDE8;
+  --text-secondary: #B0BEC5;
+  --text-dark: #0D1B2A;
+  --text-accent: #C8102E;
+  --text-highlight: #D4A843;
+
+  /* culori border */
+  --border-primary: #253B56;
+  --border-accent: #C8102E;
+  --border-light: #D0D0D0;
+  --border-highlight: #D4A843;
+
+  /* highlight si hover */
+  --highlight: #D4A843;
+  --highlight-hover: #E8BC4A;
+  --accent-hover: #A00D24;
+
+  /* spatieri - le schimbam in media queries */
+  --page-padding: 3rem;
+  --grid-gap: 1.5rem;
+  --zone-padding: 1.5rem;
+  --zone-radius: 0.75rem;
+}
+
+
+/* ---- 2. Baza - tipografie ---- */
+
+html {
+  font-size: 18px;  /* singura unitate fixa, pe html */
+  scroll-behavior: smooth;
+  transition: font-size 0.3s ease;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* headinguri */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.75em;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+/* paragrafe */
+p {
+  margin-bottom: 0.75em;
+  line-height: 1.6;
+}
+
+/* redefinire stiluri inline dupa reset */
+b, strong {
+  font-weight: 700;
+}
+
+i, em {
+  font-style: italic;
+}
+
+s, del {
+  text-decoration: line-through;
+}
+
+ins {
+  text-decoration: underline;
+}
+
+small {
+  font-size: 0.85em;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: 0.75em;
+}
+
+sup {
+  vertical-align: super;
+  font-size: 0.75em;
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+dfn {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--highlight);
+}
+
+cite {
+  font-style: italic;
+}
+
+/* ghilimele romanesti */
+q::before {
+  content: "\201E";
+}
+
+q::after {
+  content: "\201D";
+}
+
+mark {
+  background-color: var(--highlight);
+  color: var(--text-dark);
+  padding: 0.1em 0.3em;
+  border-radius: 0.2em;
+}
+
+/* linkuri */
+a {
+  color: var(--highlight);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--highlight-hover);
+  text-decoration: underline;
+}
+
+/* blockquote */
+blockquote {
+  border-left: 4px solid var(--highlight);
+  padding: 1em 1.5em;
+  margin: 1em 0;
+  background-color: rgba(27, 45, 69, 0.5);
+  border-radius: 0 var(--zone-radius) var(--zone-radius) 0;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* liste - punem inapoi bulleturile doar in zone */
+.zona ul:not(.users-list),
+.zona ol {
+  padding-left: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+.zona ul:not(.users-list) {
+  list-style-type: disc;
+}
+
+.zona ol {
+  list-style-type: decimal;
+}
+
+.zona li {
+  margin-bottom: 0.4em;
+  line-height: 1.5;
+}
+
+
+/* ---- 3. Skip link (accesibilitate) ---- */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--bg-accent);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+  border-radius: 0 0 var(--zone-radius) 0;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0;
+  text-decoration: none;
+}
+
+
+/* ---- 4. Header ---- */
+
+header {
+  background-color: var(--bg-secondary);
+  padding: var(--zone-padding) var(--page-padding);
+  border-bottom: 3px solid var(--bg-accent);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  margin-bottom: 0.5em;
+}
+
+/* culoarea iconitei din h1 */
+header h1 .fa-car-side {
+  color: var(--bg-accent);
+  margin-right: 0.3em;
+}
+
+/* navigatie */
+header nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+header nav > ul > li {
+  position: relative;
+}
+
+header nav a {
+  color: var(--text-primary);
+  padding: 0.5em 1em;
+  border-radius: 0.4em;
+  display: block;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header nav a:hover {
+  background-color: var(--bg-accent);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+/* submeniu dropdown */
+header nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--bg-tertiary);
+  border-radius: 0 0 var(--zone-radius) var(--zone-radius);
+  padding: 0.5rem 0;
+  min-width: 13rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  flex-direction: column;
+  border: 1px solid var(--border-primary);
+}
+
+/* cand dam hover pe li, aratam submeniul */
+header nav > ul > li:hover > ul {
+  display: flex;
+}
+
+header nav ul ul a {
+  padding: 0.4em 1.2em;
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
+
+/* ---- 5. Layout grid (main) ---- */
+
+main {
+  padding: var(--page-padding);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    "zona1 zona1 zona1 zona1 zona1 zona1 zona1 zona1 zona1 zona1 zona1 zona1"
+    "zona2 zona2 zona2 zona2 zona2 zona2 zona8 zona8 zona8 zona8 zona8 zona8"
+    "zona5 zona5 zona5 zona6 zona6 zona6 zona8 zona8 zona8 zona8 zona8 zona8"
+    "zona4 zona4 zona4 zona4 zona3 zona3 zona3 zona3 zona3 zona7 zona7 zona7";
+  gap: var(--grid-gap);
+}
+
+/* asignare zone */
+.zona1 { grid-area: zona1; }
+.zona2 { grid-area: zona2; }
+.zona3 { grid-area: zona3; }
+.zona4 { grid-area: zona4; }
+.zona5 { grid-area: zona5; }
+.zona6 { grid-area: zona6; }
+.zona7 { grid-area: zona7; }
+.zona8 { grid-area: zona8; }
+
+
+/* ---- 6. Izolare vizuala zone ----
+   Folosim 4 efecte: background diferit, border, border-radius, box-shadow
+*/
+
+.zona {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--zone-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: var(--zone-padding);
+}
+
+/* backgrounduri diferite pe fiecare zona */
+.zona1 {
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+  border-left: 4px solid var(--bg-accent);
+}
+
+.zona2 {
+  background-color: var(--bg-secondary);
+}
+
+.zona3 {
+  background-color: #162538;
+}
+
+.zona4 {
+  background-color: #142030;
+}
+
+.zona5 {
+  background-color: #162538;
+}
+
+.zona6 {
+  background-color: #142030;
+}
+
+.zona7 {
+  background-color: #162538;
+}
+
+.zona8 {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-highlight);
+}
+
+
+/* ---- 7. Elemente media responsive ---- */
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+object {
+  max-width: 100%;
+}
+
+/* pdf-ul din catalog sa aiba width 100% cu min */
+section#catalog-pdf object {
+  width: 100%;
+  min-width: 15rem;
+  min-height: 25rem;
+}
+
+figure {
+  margin: 1em 0;
+}
+
+figcaption {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  margin-top: 0.5em;
+  font-style: italic;
+}
+
+
+/* ---- 8. Stilizare tabel ---- */
+
+.tabel-wrapper {
+  overflow-x: auto;
+  border-radius: var(--zone-radius);
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
+caption {
+  caption-side: bottom;
+  padding: 0.75em;
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  font-style: italic;
+  text-align: left;
+}
+
+/* capul tabelului */
+thead th {
+  background-color: var(--bg-accent);
+  color: var(--text-primary);
+  padding: 0.75em 1em;
+  text-align: left;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* randuri alternate */
+tbody tr {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--bg-secondary);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--bg-tertiary);
+}
+
+/* hover pe rand */
+tbody tr:hover {
+  background-color: var(--highlight);
+  color: var(--text-dark);
+}
+
+tbody tr:hover a {
+  color: var(--text-dark);
+}
+
+tbody td {
+  padding: 0.75em 1em;
+}
+
+/* tfoot */
+tfoot td {
+  padding: 0.75em 1em;
+  background-color: var(--bg-primary);
+  border-top: 2px solid var(--border-accent);
+  font-size: 0.9em;
+  color: var(--text-secondary);
+}
+
+
+/* ---- 9. Stilizare taburi iframe (flexbox) ---- */
+
+.container-iframe {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.taburi-iframe {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* linkurile stilizate ca butoane */
+.taburi-iframe a {
+  display: block;
+  padding: 0.75em 1.5em;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-accent);
+  border-radius: var(--zone-radius);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.taburi-iframe a:hover {
+  background-color: var(--bg-accent);
+  color: var(--text-primary);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* iframe-ul ocupa restul spatiului */
+.container-iframe > iframe {
+  flex: 1;
+  min-height: 20rem;
+  border: 2px solid var(--border-accent);
+  border-radius: var(--zone-radius);
+}
+
+
+/* ---- 10. Link top ---- */
+
+#link-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: block;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: var(--bg-accent);
+  border: 2px solid var(--border-accent);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  opacity: 0.6;
+  text-decoration: none;
+  transition: background-color 0.5s ease, opacity 0.5s ease;
+  z-index: 999;
+}
+
+#link-top:hover {
+  background-color: var(--accent-hover);
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* triunghiul din buton, centrat cu flex */
+#triunghi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+
+/* ---- 11. Details / Summary ---- */
+
+summary {
+  display: list-item;
+  padding: 0.75em 1em;
+  background-color: var(--bg-tertiary);
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: var(--zone-radius);
+  transition: background-color 0.3s ease;
+}
+
+summary:hover {
+  background-color: var(--bg-accent);
+  color: var(--text-primary);
+}
+
+details {
+  margin-bottom: 0.5em;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--zone-radius);
+  overflow: hidden;
+}
+
+details[open] summary {
+  border-radius: var(--zone-radius) var(--zone-radius) 0 0;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+details p {
+  padding: 0.75em 1em;
+}
+
+
+/* ---- 12. Definition list ---- */
+
+dl {
+  margin: 0.75em 0;
+}
+
+dt {
+  font-weight: 700;
+  color: var(--highlight);
+  margin-top: 0.5em;
+}
+
+dd {
+  margin-left: 1.5em;
+  color: var(--text-secondary);
+  margin-bottom: 0.25em;
+}
+
+
+/* ---- 13. Meter ---- */
+
+meter {
+  width: 100%;
+  height: 1.5em;
+  vertical-align: middle;
+}
+
+
+/* ---- 14. Aside (anunt) ---- */
+
+aside[aria-label="Anunt important"] {
+  padding: 0.75em 1em;
+  background-color: var(--bg-accent);
+  color: var(--text-primary);
+  border-radius: var(--zone-radius);
+  margin-bottom: 1em;
+  font-weight: 600;
+}
+
+aside[aria-label="Anunt important"] mark {
+  background-color: var(--highlight);
+  color: var(--text-dark);
+}
+
+
+/* ---- 15. Hgroup ---- */
+
+hgroup {
+  margin-bottom: 1em;
+}
+
+hgroup p {
+  color: var(--text-secondary);
+  font-size: 1.1em;
+}
+
+
+/* ---- 16. Address ---- */
+
+address {
+  font-style: normal;
+  line-height: 2;
+  margin: 1em 0;
+}
+
+
+/* ---- 17. Footer ---- */
+
+footer {
+  background-color: var(--bg-secondary);
+  padding: var(--zone-padding) var(--page-padding);
+  border-top: 3px solid var(--bg-accent);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+footer h2 {
+  color: var(--highlight);
+  margin-bottom: 0.5em;
+}
+
+
+/* ---- 18. Users list (zona 5) ---- */
+
+.users-list {
+  padding: 0;
+  list-style: none;
+}
+
+.users-list li {
+  padding: 0.5em 0.6em;
+  border-bottom: 1px solid var(--border-primary);
+  font-size: 0.95em;
+}
+
+/* bulina verde inainte de fiecare user */
+.users-list li::before {
+  content: "\25CF ";
+  color: #4CAF50;
+  margin-right: 0.4em;
+}
+
+.users-list li:last-child {
+  border-bottom: none;
+}
+
+
+/* ---- 19. MathML (bonus) ---- */
+
+math {
+  display: block;
+  text-align: center;
+  margin: 1.2em 0;
+  font-size: 1.3em;
+  color: var(--text-primary);
+}
+
+/* variabilele din formula - auriu, italic, bold */
+math mi {
+  color: var(--highlight);
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* numerele - rosu, bold */
+math mn {
+  color: var(--text-accent);
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+/* operatorii */
+math mo {
+  color: var(--text-primary);
+  padding: 0 0.15em;
+}
+
+/* textul explicativ din formula */
+math mtext {
+  color: var(--text-secondary);
+  font-size: 0.85em;
+  font-style: normal;
+}
+
+math mfrac {
+  padding: 0 0.25em;
+}
+
+
+/* ---- 20. Responsive - ecran mediu (max 1024px) ---- */
+
+@media (max-width: 1024px) {
+
+  html {
+    font-size: 17px;
+  }
+
+  body {
+    --page-padding: 1.5rem;
+    --grid-gap: 1rem;
+    --zone-padding: 1.25rem;
+  }
+
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "zona1 zona1"
+      "zona2 zona8"
+      "zona5 zona6"
+      "zona4 zona3"
+      "zona7 zona7";
+  }
+
+  /* taburile se pun pe coloana, iframe sub ele */
+  .container-iframe {
+    flex-direction: column;
+  }
+
+  .taburi-iframe {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .container-iframe > iframe {
+    min-height: 15rem;
+  }
+}
+
+
+/* ---- 21. Responsive - ecran mic (max 768px) ---- */
+
+@media (max-width: 768px) {
+
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    --page-padding: 0.75rem;
+    --grid-gap: 0.75rem;
+    --zone-padding: 1rem;
+  }
+
+  /* totul pe o singura coloana */
+  main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "zona1"
+      "zona2"
+      "zona3"
+      "zona4"
+      "zona5"
+      "zona6"
+      "zona7"
+      "zona8";
+  }
+
+  /* meniul devine vertical pe mobil */
+  header nav > ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  header nav ul ul {
+    position: static;
+    display: flex;
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    padding-left: 1em;
+    min-width: unset;
+  }
+
+  /* dezactivam animatiile pe ecran mic */
+  *, *::before, *::after {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+
+  /* border-spacing dispare pe ecran mic */
+  table {
+    border-spacing: 0;
+  }
+
+  /* taburi + iframe tot pe coloana */
+  .container-iframe {
+    flex-direction: column;
+  }
+
+  .taburi-iframe {
+    flex-direction: column;
+  }
+
+  .taburi-iframe a {
+    border-radius: var(--zone-radius);
+    white-space: normal;
+  }
+}
