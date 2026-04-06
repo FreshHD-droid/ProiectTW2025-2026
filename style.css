@@ -289,6 +289,10 @@ main {
   padding: var(--zone-padding);
 }
 
+.zona section + section {
+  margin-top: 1.5em;
+}
+
 /* Background-uri diferite pe zone */
 .zona1 {
   background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
@@ -416,21 +420,24 @@ tfoot td {
    ------------------------------------------ */
 .container-iframe {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 1rem;
-  align-items: flex-start;
 }
 
 .taburi-iframe {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 0.5rem;
-  flex-shrink: 0;
+  justify-content: space-between;
 }
 
 .taburi-iframe a {
   display: block;
   padding: 0.75em 1.5em;
+  background-image: linear-gradient(to top, var(--bg-accent), #E8394E);
+  background-size: 100% 0%;
+  background-position: bottom;
+  background-repeat: no-repeat;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   border: 2px solid var(--border-accent);
@@ -439,20 +446,20 @@ tfoot td {
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  transition: background-size 0.5s ease, color 0.5s ease;
 }
 .taburi-iframe a:hover {
-  background-color: var(--bg-accent);
+  background-size: 100% 100%;
   color: var(--text-primary);
   text-decoration: none;
-  transform: translateY(-2px);
 }
 
 .container-iframe > iframe {
-  flex: 1;
+  width: 100%;
   min-height: 20rem;
   border: 2px solid var(--border-accent);
   border-radius: var(--zone-radius);
+  order: -1;
 }
 
 /* ------------------------------------------
@@ -473,13 +480,14 @@ tfoot td {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   opacity: 0.6;
   text-decoration: none;
-  transition: background-color 0.5s ease, opacity 0.5s ease;
+  transition: background-color 0.5s ease, opacity 0.5s ease, box-shadow 0.5s ease;
   z-index: 999;
 }
 #link-top:hover {
   background-color: var(--accent-hover);
   opacity: 1;
   text-decoration: none;
+  box-shadow: 0 6px 20px rgba(200, 16, 46, 0.6);
 }
 
 #triunghi {
@@ -680,9 +688,6 @@ math mfrac {
   }
 
   /* Taburi iframe: stack pe mediu */
-  .container-iframe {
-    flex-direction: column;
-  }
   .taburi-iframe {
     flex-direction: row;
     flex-wrap: wrap;
@@ -747,9 +752,6 @@ math mfrac {
   }
 
   /* Taburi iframe: stack vertical pe mobil */
-  .container-iframe {
-    flex-direction: column;
-  }
   .taburi-iframe {
     flex-direction: column;
   }
