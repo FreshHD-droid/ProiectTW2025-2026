@@ -13,7 +13,7 @@
    Schema complementara cu accente calde.
 
    Motivare (psihologia culorilor):
-   - Rosu (#C8102E): viteza, putere, pasiune, urgenta
+   - Rosu (#C8102E): viteza, putere, pasiune, urgentagi
      — potrivit pentru domeniul auto/performanta.
    - Navy inchis (#0D1B2A): incredere, stabilitate,
      profesionalism — baza solida pentru un magazin.
@@ -258,12 +258,12 @@ header nav ul ul a {
 main {
   padding: var(--page-padding);
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-areas:
-    "zona1 zona1 zona1 zona1 zona1 zona1 zona1 zona1 zona1 zona1 zona1 zona1"
-    "zona2 zona2 zona2 zona2 zona2 zona2 zona8 zona8 zona8 zona8 zona8 zona8"
-    "zona5 zona5 zona5 zona6 zona6 zona6 zona8 zona8 zona8 zona8 zona8 zona8"
-    "zona4 zona4 zona4 zona4 zona3 zona3 zona3 zona3 zona3 zona7 zona7 zona7";
+    "zona1 zona1 zona1 zona1 zona1"
+    "zona2 zona2 zona8 zona8 zona8"
+    "zona5 zona6 zona8 zona8 zona8"
+    "zona4 zona4 zona3 zona3 zona7";
   gap: var(--grid-gap);
 }
 
