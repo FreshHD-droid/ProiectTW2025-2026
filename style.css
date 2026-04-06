@@ -62,7 +62,8 @@ body {
    (dupa reset, redefinim bold, italic, liste etc.)
    ------------------------------------------ */
 html {
-  font-size: 18px; /* unitate fixa — permisa doar pe html */
+  font-size: 18px;
+  /* unitate fixa — permisa doar pe html */
   scroll-behavior: smooth;
   transition: font-size 0.3s ease;
 }
@@ -76,16 +77,33 @@ body {
 }
 
 /* Headinguri */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 0.75em;
   color: var(--text-primary);
 }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; }
-h4 { font-size: 1.1rem; }
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
 
 /* Paragrafe */
 p {
@@ -94,13 +112,38 @@ p {
 }
 
 /* Redefinire stiluri inline dupa reset */
-b, strong { font-weight: 700; }
-i, em { font-style: italic; }
-s, del { text-decoration: line-through; }
-ins { text-decoration: underline; }
-small { font-size: 0.85em; }
-sub { vertical-align: sub; font-size: 0.75em; }
-sup { vertical-align: super; font-size: 0.75em; }
+b,
+strong {
+  font-weight: 700;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+s,
+del {
+  text-decoration: line-through;
+}
+
+ins {
+  text-decoration: underline;
+}
+
+small {
+  font-size: 0.85em;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: 0.75em;
+}
+
+sup {
+  vertical-align: super;
+  font-size: 0.75em;
+}
 
 abbr[title] {
   text-decoration: underline dotted;
@@ -113,10 +156,20 @@ dfn {
   color: var(--highlight);
 }
 
-cite { font-style: italic; }
+cite {
+  font-style: italic;
+}
 
-q::before { content: "\201E"; } /* „ */
-q::after  { content: "\201D"; } /* " */
+q::before {
+  content: "\201E";
+}
+
+/* „ */
+q::after {
+  content: "\201D";
+}
+
+/* " */
 
 mark {
   background-color: var(--highlight);
@@ -131,6 +184,7 @@ a {
   text-decoration: none;
   transition: color 0.3s ease;
 }
+
 a:hover {
   color: var(--highlight-hover);
   text-decoration: underline;
@@ -153,12 +207,15 @@ blockquote {
   padding-left: 1.5em;
   margin-bottom: 0.75em;
 }
+
 .zona ul:not(.users-list) {
   list-style-type: disc;
 }
+
 .zona ol {
   list-style-type: decimal;
 }
+
 .zona li {
   margin-bottom: 0.4em;
   line-height: 1.5;
@@ -178,6 +235,7 @@ blockquote {
   border-radius: 0 0 var(--zone-radius) 0;
   font-weight: 600;
 }
+
 .skip-link:focus {
   top: 0;
   text-decoration: none;
@@ -193,24 +251,28 @@ header {
   border-bottom: 3px solid var(--bg-accent);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
+
 header h1 {
   margin-bottom: 0.5em;
 }
+
 header h1 .fa-car-side {
   color: var(--bg-accent);
   margin-right: 0.3em;
 }
 
 /* Navigatie principala */
-header nav > ul {
+header nav>ul {
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
   align-items: center;
 }
-header nav > ul > li {
+
+header nav>ul>li {
   position: relative;
 }
+
 header nav a {
   color: var(--text-primary);
   padding: 0.5em 1em;
@@ -220,6 +282,7 @@ header nav a {
   text-decoration: none;
   font-weight: 600;
 }
+
 header nav a:hover {
   background-color: var(--bg-accent);
   color: var(--text-primary);
@@ -241,9 +304,11 @@ header nav ul ul {
   flex-direction: column;
   border: 1px solid var(--border-primary);
 }
-header nav > ul > li:hover > ul {
+
+header nav>ul>li:hover>ul {
   display: flex;
 }
+
 header nav ul ul a {
   padding: 0.4em 1.2em;
   white-space: nowrap;
@@ -261,20 +326,43 @@ main {
   grid-template-columns: repeat(5, 1fr);
   grid-template-areas:
     "zona1 zona1 zona1 zona1 zona1"
-    "zona2 zona2 zona8 zona8 zona8"
-    "zona5 zona6 zona8 zona8 zona8"
+    "zona2 zona2 zona2 zona8 zona8"
+    "zona5 zona6 zona6 zona8 zona8"
     "zona4 zona4 zona3 zona3 zona7";
   gap: var(--grid-gap);
 }
 
-.zona1 { grid-area: zona1; }
-.zona2 { grid-area: zona2; }
-.zona3 { grid-area: zona3; }
-.zona4 { grid-area: zona4; }
-.zona5 { grid-area: zona5; }
-.zona6 { grid-area: zona6; }
-.zona7 { grid-area: zona7; }
-.zona8 { grid-area: zona8; }
+.zona1 {
+  grid-area: zona1;
+}
+
+.zona2 {
+  grid-area: zona2;
+}
+
+.zona3 {
+  grid-area: zona3;
+}
+
+.zona4 {
+  grid-area: zona4;
+}
+
+.zona5 {
+  grid-area: zona5;
+}
+
+.zona6 {
+  grid-area: zona6;
+}
+
+.zona7 {
+  grid-area: zona7;
+}
+
+.zona8 {
+  grid-area: zona8;
+}
 
 /* ------------------------------------------
    6. Izolare vizuala zone
@@ -289,7 +377,7 @@ main {
   padding: var(--zone-padding);
 }
 
-.zona section + section {
+.zona section+section {
   margin-top: 1.5em;
 }
 
@@ -298,24 +386,31 @@ main {
   background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
   border-left: 4px solid var(--bg-accent);
 }
+
 .zona2 {
   background-color: var(--bg-secondary);
 }
+
 .zona3 {
   background-color: #162538;
 }
+
 .zona4 {
   background-color: #142030;
 }
+
 .zona5 {
   background-color: #162538;
 }
+
 .zona6 {
   background-color: #142030;
 }
+
 .zona7 {
   background-color: #162538;
 }
+
 .zona8 {
   background-color: var(--bg-tertiary);
   border-color: var(--border-highlight);
@@ -325,16 +420,20 @@ main {
    7. Elemente media responsive
    Latime in procente, cu min-width / max-width
    ------------------------------------------ */
-img, video {
+img,
+video {
   max-width: 100%;
   height: auto;
 }
+
 iframe {
   max-width: 100%;
 }
+
 object {
   max-width: 100%;
 }
+
 section#catalog-pdf object {
   width: 100%;
   min-width: 15rem;
@@ -344,6 +443,7 @@ section#catalog-pdf object {
 figure {
   margin: 1em 0;
 }
+
 figcaption {
   font-size: 0.9em;
   color: var(--text-secondary);
@@ -387,16 +487,20 @@ thead th {
 tbody tr {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
+
 tbody tr:nth-child(odd) {
   background-color: var(--bg-secondary);
 }
+
 tbody tr:nth-child(even) {
   background-color: var(--bg-tertiary);
 }
+
 tbody tr:hover {
   background-color: var(--highlight);
   color: var(--text-dark);
 }
+
 tbody tr:hover a {
   color: var(--text-dark);
 }
@@ -448,13 +552,14 @@ tfoot td {
   white-space: nowrap;
   transition: background-size 0.5s ease, color 0.5s ease;
 }
+
 .taburi-iframe a:hover {
   background-size: 100% 100%;
   color: var(--text-primary);
   text-decoration: none;
 }
 
-.container-iframe > iframe {
+.container-iframe>iframe {
   width: 100%;
   min-height: 20rem;
   border: 2px solid var(--border-accent);
@@ -483,6 +588,7 @@ tfoot td {
   transition: background-color 0.5s ease, opacity 0.5s ease, box-shadow 0.5s ease;
   z-index: 999;
 }
+
 #link-top:hover {
   background-color: var(--accent-hover);
   opacity: 1;
@@ -513,20 +619,24 @@ summary {
   border-radius: var(--zone-radius);
   transition: background-color 0.3s ease;
 }
+
 summary:hover {
   background-color: var(--bg-accent);
   color: var(--text-primary);
 }
+
 details {
   margin-bottom: 0.5em;
   border: 1px solid var(--border-primary);
   border-radius: var(--zone-radius);
   overflow: hidden;
 }
+
 details[open] summary {
   border-radius: var(--zone-radius) var(--zone-radius) 0 0;
   border-bottom: 1px solid var(--border-primary);
 }
+
 details p {
   padding: 0.75em 1em;
 }
@@ -534,12 +644,16 @@ details p {
 /* ------------------------------------------
    12. Definition List
    ------------------------------------------ */
-dl { margin: 0.75em 0; }
+dl {
+  margin: 0.75em 0;
+}
+
 dt {
   font-weight: 700;
   color: var(--highlight);
   margin-top: 0.5em;
 }
+
 dd {
   margin-left: 1.5em;
   color: var(--text-secondary);
@@ -566,6 +680,7 @@ aside[aria-label="Anunt important"] {
   margin-bottom: 1em;
   font-weight: 600;
 }
+
 aside[aria-label="Anunt important"] mark {
   background-color: var(--highlight);
   color: var(--text-dark);
@@ -577,6 +692,7 @@ aside[aria-label="Anunt important"] mark {
 hgroup {
   margin-bottom: 1em;
 }
+
 hgroup p {
   color: var(--text-secondary);
   font-size: 1.1em;
@@ -601,6 +717,7 @@ footer {
   border-top: 3px solid var(--bg-accent);
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
 }
+
 footer h2 {
   color: var(--highlight);
   margin-bottom: 0.5em;
@@ -613,16 +730,19 @@ footer h2 {
   padding: 0;
   list-style: none;
 }
+
 .users-list li {
   padding: 0.5em 0.6em;
   border-bottom: 1px solid var(--border-primary);
   font-size: 0.95em;
 }
+
 .users-list li::before {
   content: "\25CF ";
   color: #4CAF50;
   margin-right: 0.4em;
 }
+
 .users-list li:last-child {
   border-bottom: none;
 }
@@ -639,25 +759,30 @@ math {
   font-size: 1.3em;
   color: var(--text-primary);
 }
+
 math mi {
   color: var(--highlight);
   font-style: italic;
   font-weight: 700;
 }
+
 math mn {
   color: var(--text-accent);
   font-weight: 700;
   font-size: 1.1em;
 }
+
 math mo {
   color: var(--text-primary);
   padding: 0 0.15em;
 }
+
 math mtext {
   color: var(--text-secondary);
   font-size: 0.85em;
   font-style: normal;
 }
+
 math mfrac {
   padding: 0 0.25em;
 }
@@ -692,7 +817,8 @@ math mfrac {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  .container-iframe > iframe {
+
+  .container-iframe>iframe {
     min-height: 15rem;
   }
 }
@@ -726,10 +852,11 @@ math mfrac {
   }
 
   /* Nav stack vertical pe mobil */
-  header nav > ul {
+  header nav>ul {
     flex-direction: column;
     gap: 0;
   }
+
   header nav ul ul {
     position: static;
     display: flex;
@@ -741,7 +868,9 @@ math mfrac {
   }
 
   /* Dezactivare animatii pe ecran mic */
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0s !important;
     animation-delay: 0s !important;
   }
@@ -755,6 +884,7 @@ math mfrac {
   .taburi-iframe {
     flex-direction: column;
   }
+
   .taburi-iframe a {
     border-radius: var(--zone-radius);
     white-space: normal;
