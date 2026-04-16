@@ -1,0 +1,31 @@
+{
+  "cale_baza": "/resurse/imagini/erori/",
+  "eroare_default": {
+    "titlu": "Eroare necunoscuta",
+    "text": "A aparut o eroare neasteptata. Va rugam incercati din nou sau contactati echipa Apex Auto Shop.",
+    "imagine": "eroare-default.svg"
+  },
+  "info_erori": [
+    {
+      "identificator": 400,
+      "status": true,
+      "titlu": "400 - Cerere invalida",
+      "text": "Cererea trimisa catre server nu este valida. Fisierele sursa (.ejs) nu pot fi accesate direct din browser.",
+      "imagine": "400.svg"
+    },
+    {
+      "identificator": 403,
+      "status": true,
+      "titlu": "403 - Acces interzis",
+      "text": "Nu aveti permisiunea de a accesa acest director. Resursele pot fi accesate doar prin fisiere specifice, nu prin navigarea folderelor.",
+      "imagine": "403.svg"
+    },
+    {
+      "identificator": 404,
+      "status": true,
+      "titlu": "404 - Pagina nu a fost gasita",
+      "text": "Pagina pe care o cautati nu exista pe server. Verificati adresa URL sau navigati folosind meniul de mai sus.",
+      "imagine": "404.svg"
+    }
+  ]
+}

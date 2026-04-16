@@ -1,0 +1,46 @@
+# Build output
+dist/
+coverage/
+.cache/
+.parcel-cache/
+.turbo/
+
+# Dependencies
+node_modules/
+
+# Foldere generate automat de aplicatie (Task 20)
+temp/
+logs/
+backup/
+fisiere_uploadate/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local environment overrides
+.env
+.env.*
+!.env.example
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor files
+.vscode/
+.idea/workspace.xml
+.idea/shelf/
+.idea/dataSources/
+.idea/dataSources.local.xml
+.idea/httpRequests/
+
+*.pdf
+!resurse/descarcari/catalog-piese-auto.pdf
+
+scripts/
+.idea

@@ -1,0 +1,34 @@
+// ============================================
+// SASS Variables — Etapa 3 Menu
+// ============================================
+
+// Font sizes
+$nav-font-size-base: 1rem;
+$nav-font-size-hover: 1.15rem;
+$nav-font-size-medium: 0.85rem;
+
+// Spacing
+$nav-padding-h: 1em;
+$nav-padding-v: 0.5em;
+$nav-border-radius: 0.4em;
+$submenu-min-width: 13rem;
+
+// Transitions
+$nav-transition-speed: 0.3s;
+$submenu-scale-speed: 0.35s;
+
+// Pseudo-element bars (submenu hover)
+$bar-width: 3px;
+$bar-gradient: linear-gradient(to bottom, white, black);
+
+// Hamburger
+$hamburger-bar-height: 3px;
+$hamburger-bar-width: 28px;
+$hamburger-bar-gap: 7px;
+$hamburger-size: 42px;
+$hamburger-animation-duration: 0.5s;
+$hamburger-bar-delay-step: 100ms;
+
+// Breakpoints
+$breakpoint-medium: 1024px;
+$breakpoint-small: 768px;

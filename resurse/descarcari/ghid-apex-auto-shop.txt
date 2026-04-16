@@ -1,0 +1,8 @@
+Ghid rapid Apex Auto Shop
+
+1. Selecteaza masina (marca, model, an, motor).
+2. Verifica piesele compatibile in catalog.
+3. Compara pret, stoc si producator.
+4. Consulta ghidurile din blog inainte de montaj.
+5. Foloseste contactul din footer pentru asistenta.
+

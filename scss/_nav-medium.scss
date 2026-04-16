@@ -1,0 +1,16 @@
+// ============================================
+// Medium screen — max 1024px
+// Icons only, text hidden
+// ============================================
+@use 'variables' as *;
+
+@media (max-width: $breakpoint-medium) {
+  .nav-main .nav-item > a {
+    font-size: $nav-font-size-medium;
+
+    // Hide text, show only FA icons
+    .nav-text {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "apex-auto-shop",
+  "version": "4.0.0",
+  "description": "Apex Auto Shop - magazin online pentru piese auto, tuning si accesorii. Proiect Tehnici Web 2026.",
+  "author": "Marcu George Robert",
+  "keywords": [
+    "magazin piese auto",
+    "tuning auto Romania",
+    "piese auto performanta",
+    "accesorii auto",
+    "piese aftermarket"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "sass:build": "sass scss/menu.scss resurse/css/menu.css",
+    "sass:watch": "sass --watch scss/menu.scss resurse/css/menu.css"
+  },
+  "private": true,
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1"
+  }
+}

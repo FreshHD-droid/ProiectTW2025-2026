@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#0D1B2A"/>
+  <rect x="170" y="60" width="60" height="80" rx="8" fill="none" stroke="#D4A843" stroke-width="5"/>
+  <rect x="180" y="100" width="40" height="40" rx="4" fill="#D4A843" opacity="0.3"/>
+  <circle cx="200" cy="115" r="6" fill="#D4A843"/>
+  <rect x="197" y="118" width="6" height="14" rx="2" fill="#D4A843"/>
+  <text x="200" y="220" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="48" font-weight="700" fill="#F0EDE8">403</text>
+  <text x="200" y="260" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="16" fill="#B0BEC5">Acces interzis</text>
+</svg>

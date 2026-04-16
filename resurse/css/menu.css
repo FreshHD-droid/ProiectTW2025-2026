@@ -1,0 +1,259 @@
+.nav-main .nav-item.has-submenu > .submenu li a, .nav-main .nav-item > a {
+  color: var(--text-primary);
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-toggle-checkbox {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+}
+
+.nav-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  align-items: center;
+}
+.nav-main .nav-item {
+  position: relative;
+}
+.nav-main .nav-item > a {
+  padding: 0.5em 1em;
+  border-radius: 0.4em;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: font-size 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.nav-main .nav-item > a:hover {
+  font-size: 1.15rem;
+  background-color: var(--bg-accent);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+.nav-main .nav-item.has-submenu > .submenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--bg-tertiary);
+  border-radius: 0 0 var(--zone-radius) var(--zone-radius);
+  padding: 0.5rem 0;
+  min-width: 13rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  border: 1px solid var(--border-primary);
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.35s ease;
+  pointer-events: none;
+}
+.nav-main .nav-item.has-submenu > .submenu li {
+  position: relative;
+}
+.nav-main .nav-item.has-submenu > .submenu li a {
+  padding: 0.4em 1.2em;
+  white-space: nowrap;
+  font-weight: 400;
+  font-size: 0.9em;
+  position: relative;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+.nav-main .nav-item.has-submenu > .submenu li a::before, .nav-main .nav-item.has-submenu > .submenu li a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 3px;
+  height: 0;
+  background: linear-gradient(to bottom, white, black);
+  transition: height 0.3s ease;
+}
+.nav-main .nav-item.has-submenu > .submenu li a::before {
+  left: 0;
+}
+.nav-main .nav-item.has-submenu > .submenu li a::after {
+  right: 0;
+}
+.nav-main .nav-item.has-submenu > .submenu li a:hover {
+  background-color: var(--bg-accent);
+}
+.nav-main .nav-item.has-submenu > .submenu li a:hover::before, .nav-main .nav-item.has-submenu > .submenu li a:hover::after {
+  height: 100%;
+}
+.nav-main .nav-item.has-submenu:hover > .submenu {
+  transform: scaleY(1);
+  pointer-events: auto;
+}
+
+@media (max-width: 1024px) {
+  .nav-main .nav-item > a {
+    font-size: 0.85rem;
+  }
+  .nav-main .nav-item > a .nav-text {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    position: relative;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .nav-main {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+  .nav-main .nav-item {
+    width: 100%;
+  }
+  .nav-main .nav-item:first-child > a .nav-text {
+    display: none;
+  }
+  .nav-main .nav-item > a {
+    border-radius: 0;
+    padding: 0.6em 1em;
+  }
+  .nav-main .nav-item > a .nav-text {
+    display: inline;
+  }
+  .nav-main .nav-item.has-submenu > .submenu {
+    position: static;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s ease, max-height 0.35s ease, padding 0.35s ease;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.15);
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    padding-left: 1em;
+    min-width: unset;
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+  }
+  .nav-main .nav-item.has-submenu:hover > .submenu {
+    transform: scaleX(1);
+    pointer-events: auto;
+    max-height: 20rem;
+    padding: 0.5rem 0 0.5rem 1em;
+  }
+  .menu-toggle-checkbox:checked ~ nav .nav-main {
+    display: flex;
+  }
+}
+.hamburger {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 50%;
+  right: var(--page-padding);
+  transform: translateY(-50%);
+  z-index: 200;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.hamburger .bar {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.5s ease, opacity 0.5s ease, background-color 0.5s ease;
+}
+.hamburger .bar-1 {
+  top: calc(50% + (1 - 2) * (3px + 7px));
+}
+.hamburger .bar-2 {
+  top: calc(50% + (2 - 2) * (3px + 7px));
+}
+.hamburger .bar-3 {
+  top: calc(50% + (3 - 2) * (3px + 7px));
+}
+
+@keyframes hamburger-bar1 {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+    background-color: var(--text-primary);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px) rotate(0deg);
+    background-color: var(--highlight);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(10px) rotate(45deg);
+    background-color: var(--bg-accent);
+    opacity: 1;
+  }
+}
+@keyframes hamburger-bar2 {
+  0% {
+    transform: translateX(-50%) scaleX(1);
+    background-color: var(--text-primary);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scaleX(0.5);
+    background-color: var(--highlight);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(-50%) scaleX(0);
+    background-color: var(--bg-accent);
+    opacity: 0;
+  }
+}
+@keyframes hamburger-bar3 {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+    background-color: var(--text-primary);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px) rotate(0deg);
+    background-color: var(--highlight);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10px) rotate(-45deg);
+    background-color: var(--bg-accent);
+    opacity: 1;
+  }
+}
+.menu-toggle-checkbox:checked ~ .hamburger .bar-1 {
+  animation: hamburger-bar1 0.5s ease forwards;
+  animation-delay: 0ms;
+}
+.menu-toggle-checkbox:checked ~ .hamburger .bar-2 {
+  animation: hamburger-bar2 0.5s ease forwards;
+  animation-delay: 100ms;
+}
+.menu-toggle-checkbox:checked ~ .hamburger .bar-3 {
+  animation: hamburger-bar3 0.5s ease forwards;
+  animation-delay: 200ms;
+}
+
+/*# sourceMappingURL=menu.css.map */

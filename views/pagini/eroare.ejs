@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <%- include('../fragmente/head') %>
+  <meta name="description" content="Pagina de eroare - Apex Auto Shop">
+  <title><%= titlu %> - Apex Auto Shop</title>
+</head>
+<body id="top">
+<%- include('../fragmente/header') %>
+
+<main id="continut-principal">
+  <div class="zona zona-pagina zona-eroare">
+    <div class="eroare-container">
+      <img src="<%= imagine %>" alt="<%= titlu %>" class="eroare-imagine">
+      <h2><%= titlu %></h2>
+      <p><%= text %></p>
+      <p><a href="/">Inapoi la pagina principala</a></p>
+    </div>
+  </div>
+</main>
+
+<%- include('../fragmente/footer') %>
+</body>
+</html>
