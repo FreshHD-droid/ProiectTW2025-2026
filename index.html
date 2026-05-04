@@ -30,6 +30,9 @@
 
   <!-- CSS Etapa 3 - Meniu (compilat din SASS) -->
   <link rel="stylesheet" href="menu.css">
+
+  <!-- CSS Etapa 3 - Stil printare (compilat din SASS, doar la print) -->
+  <link rel="stylesheet" href="print.css" media="print">
 </head>
 <body id="top">
 <a href="#continut-principal" class="skip-link">Sari la continutul principal</a>
@@ -464,6 +467,7 @@
 </a>
 
 <footer id="despre-contact">
+  <p class="banner-proiect">Acesta este un proiect școlar!</p>
   <h2>Despre noi si contact</h2>
   <p>
     Suntem un magazin specializat in piese aftermarket, piese OEM si consultanta de tuning.
@@ -492,5 +496,8 @@
 
   <small>&copy; Apex Auto Shop. Pagina creata la data de <time datetime="2026-03-03">3 martie 2026</time>.</small>
 </footer>
+
+<!-- Watermark pentru printare (ascuns pe ecran, vizibil pe fiecare pagina la print) -->
+<div class="watermark-print" aria-hidden="true">Marcu George Robert</div>
 </body>
 </html>

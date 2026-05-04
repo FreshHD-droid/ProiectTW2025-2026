@@ -1,0 +1,153 @@
+// ============================================
+// Etapa 3 — Stil printare (css-printare)
+// Compiled with: npx sass scss/print.scss print.css
+// Inclus in HTML cu media="print", deci toate
+// regulile de mai jos se aplica doar la printare.
+// ============================================
+
+// --- Variabile SASS pentru valorile din specificatie ---
+$margin-large: 2.5cm;
+$margin-small: 0.5cm;
+$watermark-width: 100px;
+$watermark-height: 2cm;
+$watermark-opacity: 0.65;
+$banner-width: 80%;
+$banner-offset: 10%; // (100% - $banner-width) / 2 = 10%
+$h1-size: 2.5rem; // 2.5x dimensiunea de font a html-ului (html: 18px in style.css)
+
+// --- 0. Reset culori pentru lizibilitate la print ---
+// Tema dark a site-ului ar fi ilizibila pe hartie alba.
+// Resetam aspectul: text negru pe fundal alb, fara umbre, cu borduri negre.
+* {
+  background: transparent !important;
+  color: black !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  border-color: black !important;
+}
+
+body {
+  background: white !important;
+  color: black !important;
+  // Body devine containing block pentru .banner-proiect (position: absolute).
+  // Astfel `top: 0` plaseaza bannerul in susul paginii 1 si numai acolo.
+  position: relative;
+}
+
+// --- 7. Margini diferite pe paginile din stanga si dreapta ---
+@page :left {
+  margin-left: $margin-large;
+  margin-right: $margin-small;
+}
+
+@page :right {
+  margin-left: $margin-small;
+  margin-right: $margin-large;
+}
+
+// --- 1. Banner — paragraful real din footer, stilizat direct ---
+// Scos din flow-ul footerului cu position: absolute relativ la body.
+// `top: 0` al body-ului = inceputul documentului = pagina 1, deci
+// bannerul apare doar acolo (spre deosebire de position: fixed care
+// se repeta pe fiecare pagina printata).
+// Foloseste paragraful existent din HTML, nu continut generat in CSS.
+.banner-proiect {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: $banner-offset;
+  width: $banner-width;
+  margin: 0;
+  padding: 0.25cm 0;
+  border: 1px dotted black !important;
+  background: white !important;
+  color: black !important;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 9999;
+}
+
+// --- 3. Gridul paginii afisat ca block ---
+main {
+  display: block;
+}
+
+// --- 4. Toate linkurile ca text normal (nu colorate, nu subliniate) ---
+a,
+a:visited {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+// --- 5. H1 pe prima pagina, centrat, subliniat, page break dupa ---
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  page-break-after: always;
+
+  h1 {
+    font-size: $h1-size;
+    text-decoration: underline;
+    text-align: center;
+    color: black !important;
+  }
+
+  // Meniul ascuns
+  nav,
+  .hamburger,
+  .menu-toggle-checkbox {
+    display: none !important;
+  }
+}
+
+// Page break inaintea footerului
+footer {
+  page-break-before: always;
+}
+
+// --- 6. Watermark cu numele pe fiecare pagina ---
+.watermark-print {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 1cm;
+  right: 1cm;
+  width: $watermark-width;
+  height: $watermark-height;
+  border: 3px double black !important;
+  opacity: $watermark-opacity;
+  background: white !important;
+  color: black !important;
+  text-align: center;
+  z-index: 9998;
+}
+
+// --- 2. Ascundem media + elemente dependente ---
+img,
+video,
+iframe,
+audio,
+embed,
+object,
+picture,
+source,
+svg,
+map,
+figure,
+figcaption {
+  display: none !important;
+}
+
+// Toate linkurile catre inceputul paginii: floating #link-top + linkul din footer
+a[href="#top"] {
+  display: none !important;
+}
+
+// Paragraful din footer care contine doar linkul "Inapoi la inceputul paginii"
+// (ca sa nu ramana un spatiu gol unde era linkul)
+footer p:has(> a[href="#top"]) {
+  display: none !important;
+}
