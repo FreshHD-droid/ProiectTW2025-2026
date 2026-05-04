@@ -1,0 +1,112 @@
+* {
+  background: transparent !important;
+  color: black !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  border-color: black !important;
+}
+
+body {
+  background: white !important;
+  color: black !important;
+  position: relative;
+}
+
+@page :left {
+  margin-left: 2.5cm;
+  margin-right: 0.5cm;
+}
+@page :right {
+  margin-left: 0.5cm;
+  margin-right: 2.5cm;
+}
+.banner-proiect {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  margin: 0;
+  padding: 0.25cm 0;
+  border: 1px dotted black !important;
+  background: white !important;
+  color: black !important;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 9999;
+}
+
+main {
+  display: block;
+}
+
+a,
+a:visited {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  page-break-after: always;
+}
+header h1 {
+  font-size: 2.5rem;
+  text-decoration: underline;
+  text-align: center;
+  color: black !important;
+}
+header nav,
+header .hamburger,
+header .menu-toggle-checkbox {
+  display: none !important;
+}
+
+footer {
+  page-break-before: always;
+}
+
+.watermark-print {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 1cm;
+  right: 1cm;
+  width: 100px;
+  height: 2cm;
+  border: 3px double black !important;
+  opacity: 0.65;
+  background: white !important;
+  color: black !important;
+  text-align: center;
+  z-index: 9998;
+}
+
+img,
+video,
+iframe,
+audio,
+embed,
+object,
+picture,
+source,
+svg,
+map,
+figure,
+figcaption {
+  display: none !important;
+}
+
+a[href="#top"] {
+  display: none !important;
+}
+
+footer p:has(> a[href="#top"]) {
+  display: none !important;
+}
+
+/*# sourceMappingURL=print.css.map */

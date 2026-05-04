@@ -13,12 +13,19 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "sass:build": "sass scss/menu.scss resurse/css/menu.css",
-    "sass:watch": "sass --watch scss/menu.scss resurse/css/menu.css"
+    "sass:build:menu": "sass scss/menu.scss resurse/css/menu.css",
+    "sass:build:print": "sass scss/print.scss resurse/css/print.css",
+    "sass:build": "npm run sass:build:menu && npm run sass:build:print",
+    "sass:watch:menu": "sass --watch scss/menu.scss resurse/css/menu.css",
+    "sass:watch:print": "sass --watch scss/print.scss resurse/css/print.css",
+    "sass:watch": "sass --watch scss/menu.scss resurse/css/menu.css scss/print.scss resurse/css/print.css"
   },
   "private": true,
   "dependencies": {
     "ejs": "^5.0.1",
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "sass": "^1.99.0"
   }
 }
